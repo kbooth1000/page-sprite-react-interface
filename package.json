@@ -1,0 +1,20 @@
+{
+  "name": "choose-your-own-adventure",
+  "version": "1.0.0",
+  "description": "A User-Made Role-Playing Storyapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbooth1000/adventure-chooser.git"
+  },
+  "author": "Kyle Booth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kbooth1000/adventure-chooser/issues"
+  },
+  "homepage": "https://github.com/kbooth1000/adventure-chooser#readme",
+  "dependencies": {}
+}
