@@ -47,6 +47,18 @@ class App extends Component {
             <Link to={'/004'} onClick={() => this.handleClick('004')}>
               004
             </Link>
+            <br />
+            <Link to={'/004'} onClick={() => this.handleClick('005')}>
+              005
+            </Link>
+            <br />
+            <Link to={'/004'} onClick={() => this.handleClick('006')}>
+              006
+            </Link>
+            <br />
+            <Link to={'/004'} onClick={() => this.handleClick('007')}>
+              007
+            </Link>
           </p>
         </h2>
         <p>{page.content}</p>
@@ -58,8 +70,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="page-grid"> {this.pageGrid(activePage)}</div>
-        {/* <Route path="/:id" component={ActivePageMarker} /> */}
+        <div className="container">
+          <div className="inner-container">
+            <div className="page-grid"> {this.pageGrid(activePage)}</div>
+            {/* <Route path="/:id" component={ActivePageMarker} /> */}
+          </div>
+        </div>
       </div>
     );
   }
