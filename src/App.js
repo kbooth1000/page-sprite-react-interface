@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import jsonPageData from './data/data';
 import './css/App.css';
@@ -10,6 +11,10 @@ class App extends Component {
       activePage: '003'
     };
   }
+
+  handleClick = nextPageID => {
+    this.setState({ activePage: nextPageID });
+  };
 
   componentDidMount() {
     let routePath = this.props.location.pathname.split(/[:/]+/);
@@ -28,8 +33,21 @@ class App extends Component {
         }
       >
         <h2>
-          {page.title}
+          {page.title} --
           {page._id}
+          <p>
+            <Link to={'/002'} onClick={() => this.handleClick('002')}>
+              002
+            </Link>
+            <br />
+            <Link to={'/003'} onClick={() => this.handleClick('003')}>
+              003
+            </Link>
+            <br />
+            <Link to={'/004'} onClick={() => this.handleClick('004')}>
+              004
+            </Link>
+          </p>
         </h2>
         <p>{page.content}</p>
       </div>
