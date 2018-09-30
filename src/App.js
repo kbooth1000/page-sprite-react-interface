@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Rabbit from './components/Rabbit';
 
 import jsonPageData from './data/data';
 import './css/App.css';
@@ -64,6 +65,7 @@ class App extends Component {
           </p>
         </h2>
         <p>{page.content}</p>
+        {page.component && page.component}
       </div>
     ));
 

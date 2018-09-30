@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  /* background: #ff0; */
   box-sizing: border-box;
 }
 
@@ -19,11 +18,10 @@
 .App .inner-container {
   width: 300vw;
   height: 300vh;
-  transition: 1s;
+  transition: transform 1s;
 }
 
 .App .page {
-  background: #d00;
   transition: 1s;
   overflow: hidden;
   flex: 0;
@@ -36,7 +34,7 @@
 
 .App .page a {
   text-decoration: none;
-  color: #fff;
+  color: #f0f;
 }
 
 .App .page.active {
@@ -47,7 +45,10 @@
   /* -ms-flex: 1 1;
   flex: 1 1;
   overflow: hidden;
-  box-sizing: border-box;
-  border-color: #333; */
-  background-color: #c00;
+  box-sizing: border-box;*/
+  border-color: #333;
+  border-radius: 100%;
+  /* margin: 1rem; */
+  /* background-color: #eee; */
+  /* opacity: 1; */
 }

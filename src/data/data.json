@@ -12,7 +12,8 @@
     {
       "_id": "3",
       "title": "Page Three",
-      "content": "This is Page Three"
+      "content": "This is Page Three",
+      "component": "Rabbit"
     },
     {
       "_id": "4",
