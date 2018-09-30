@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      activePage: '003'
+      activePage: '3'
     };
   }
 
@@ -18,8 +18,6 @@ class App extends Component {
 
   componentDidMount() {
     let routePath = this.props.location.pathname.split(/[:/]+/);
-    console.log('routePath: ', routePath[1]);
-
     this.setState({ activePage: routePath[1] });
   }
 
@@ -36,28 +34,32 @@ class App extends Component {
           {page.title} --
           {page._id}
           <p>
-            <Link to={'/002'} onClick={() => this.handleClick('002')}>
-              002
+            <Link to={'/1'} onClick={() => this.handleClick('1')}>
+              1
             </Link>
             <br />
-            <Link to={'/003'} onClick={() => this.handleClick('003')}>
-              003
+            <Link to={'/2'} onClick={() => this.handleClick('2')}>
+              2
             </Link>
             <br />
-            <Link to={'/004'} onClick={() => this.handleClick('004')}>
-              004
+            <Link to={'/3'} onClick={() => this.handleClick('3')}>
+              3
             </Link>
             <br />
-            <Link to={'/004'} onClick={() => this.handleClick('005')}>
-              005
+            <Link to={'/4'} onClick={() => this.handleClick('4')}>
+              4
             </Link>
             <br />
-            <Link to={'/004'} onClick={() => this.handleClick('006')}>
-              006
+            <Link to={'/5'} onClick={() => this.handleClick('5')}>
+              5
             </Link>
             <br />
-            <Link to={'/004'} onClick={() => this.handleClick('007')}>
-              007
+            <Link to={'/6'} onClick={() => this.handleClick('6')}>
+              6
+            </Link>
+            <br />
+            <Link to={'/7'} onClick={() => this.handleClick('7')}>
+              7
             </Link>
           </p>
         </h2>
@@ -65,13 +67,27 @@ class App extends Component {
       </div>
     ));
 
+  getContainerTranslateXY = pageNum => {
+    let colMultiplier = Math.floor((pageNum - 1) / 3);
+    let rowSubtractor = 99 * colMultiplier;
+    let x = -33 * (pageNum - 1) + rowSubtractor + 'vw';
+    let y = (-33 * colMultiplier).toString() + 'vh';
+    return x + ',' + y;
+  };
+
   render() {
     let { activePage } = this.state;
 
     return (
       <div className="App">
-        <div className="container">
-          <div className="inner-container">
+        <div className={'container active-page-' + activePage}>
+          <div
+            className="inner-container"
+            style={{
+              transform:
+                'translate(' + this.getContainerTranslateXY(activePage) + ' )'
+            }}
+          >
             <div className="page-grid"> {this.pageGrid(activePage)}</div>
             {/* <Route path="/:id" component={ActivePageMarker} /> */}
           </div>
