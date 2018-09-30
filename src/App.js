@@ -69,9 +69,9 @@ class App extends Component {
 
   getContainerTranslateXY = pageNum => {
     let colMultiplier = Math.floor((pageNum - 1) / 3);
-    let rowSubtractor = 99 * colMultiplier;
-    let x = -33 * (pageNum - 1) + rowSubtractor + 'vw';
-    let y = (-33 * colMultiplier).toString() + 'vh';
+    let rowSubtractor = 300 * colMultiplier;
+    let x = -100 * (pageNum - 1) + rowSubtractor + 'vw';
+    let y = (-100 * colMultiplier).toString() + 'vh';
     return x + ',' + y;
   };
 
