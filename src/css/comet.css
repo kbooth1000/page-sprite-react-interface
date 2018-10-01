@@ -1,12 +1,19 @@
 .c-2 {
   background: #114;
+  color: #fff;
 }
 
-.comet {
+.comet button {
+  position: absolute;
+  z-index: 99;
+  transform: translateY(-14vh);
+}
+
+.comet-box {
   transform: rotate(150deg);
 }
 
-.comet svg {
+.comet-box svg {
   height: 70vh;
   width: 80vw;
   background-color: transparent;
@@ -14,20 +21,20 @@
   overflow: visible;
 }
 
-.comet polygon {
+.comet-box polygon {
   stroke: rgb(13, 105, 101);
   stroke-linecap: round;
-  stroke-width: 5;
+  stroke-width: 0;
   fill-opacity: .0;
   fill: #f88;
 }
 
-.comet .spinning-star {
+.comet-box .spinning-star {
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.comet .head-star {
+.comet-box .head-star {
   fill-opacity: 1;
   transform: scale(2);
   transform-box: fill-box;

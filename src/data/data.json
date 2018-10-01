@@ -6,6 +6,7 @@
     },
     {
       "_id": "2",
+      "content": "Randomly generated comet. (It's different every time.)",
       "component": "Comet"
     },
     {
