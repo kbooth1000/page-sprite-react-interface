@@ -1,0 +1,47 @@
+svg {
+  height: 22vh;
+  width: 30vw;
+  background-color: transparent;
+  padding: 1vh;
+}
+
+path {
+  stroke: rgb(13, 105, 101);
+  stroke-linecap: round;
+  stroke-width: 5;
+  fill-opacity: .0;
+  fill: #f88;
+}
+
+.rabbit {
+  stroke-dasharray: 57;
+  stroke-dashoffset: 1620;
+  animation: draw 12s reverse infinite;
+}
+
+@keyframes draw {
+
+  0% {
+    stroke-opacity: 0;
+  }
+
+  5% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 999 11;
+    stroke-opacity: 1;
+  }
+
+  15% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 999 1;
+    stroke-opacity: 1;
+  }
+
+  70% {
+    stroke-opacity: 1;
+  }
+
+  100% {
+    stroke-opacity: 0;
+  }
+}

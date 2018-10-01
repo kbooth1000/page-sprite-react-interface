@@ -30,6 +30,14 @@
   max-height: 100vh;
   border: 1px #fff solid;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.App .page.active {
+  opacity: 1;
 }
 
 .App .page a {
@@ -37,18 +45,23 @@
   color: #f0f;
 }
 
-.App .page.active {
-  /* height: 100vh; */
-  /* padding: 5%; */
-  /* border: 5vh #f0f solid; */
+.linkbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 999;
+  background: #777777;
+  padding: 11px;
+  color: #fff;
+}
 
-  /* -ms-flex: 1 1;
-  flex: 1 1;
-  overflow: hidden;
-  box-sizing: border-box;*/
-  border-color: #333;
-  border-radius: 100%;
-  /* margin: 1rem; */
-  /* background-color: #eee; */
-  /* opacity: 1; */
+.linkbox a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.linkbox a:hover {
+  color: #bbf;
+  text-decoration: none;
 }

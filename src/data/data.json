@@ -6,13 +6,12 @@
     },
     {
       "_id": "2",
-      "title": "Page Two",
-      "content": "This is Page Two"
+      "component": "Comet"
     },
     {
       "_id": "3",
-      "title": "Page Three",
-      "content": "This is Page Three",
+      "title": "Rabbit",
+      "content": "",
       "component": "Rabbit"
     },
     {
