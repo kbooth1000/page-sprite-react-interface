@@ -8,6 +8,13 @@ class LinkBox extends Component {
   render() {
     return (
       <div className="linkbox">
+        <small>
+          CHOOSE
+          <br />
+          ONE:
+        </small>
+        <br />
+        <br />
         <Link to={'/1'} onClick={() => this.props.handleClick('1')}>
           1
         </Link>

@@ -20,7 +20,8 @@ class PageGrid extends Component {
         }
       >
         <h2 className="page-title">{page.title && page.title}</h2>
-        <p className="page-content">{page.content && page.content}</p>
+        <h4 className="page-content">{page.description && page.description}</h4>
+        {page.content && page.content}
         {page.component && page.component === 'Rabbit' && <Rabbit />}
         {page.component && page.component === 'Comet' && <Comet />}
       </div>

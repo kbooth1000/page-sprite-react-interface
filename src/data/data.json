@@ -2,38 +2,43 @@
   "pages": [{
       "_id": "1",
       "title": "Page One",
-      "content": "This is Page One"
+      "description": "This is Page One",
+      "content": "Nothing here yet. Try another one."
     },
     {
       "_id": "2",
-      "content": "Randomly generated comet. (It's different every time.)",
+      "description": "Randomly generated comet. (It's different every time.)",
       "component": "Comet"
     },
     {
       "_id": "3",
       "title": "Rabbit",
-      "content": "",
+      "description": "",
       "component": "Rabbit"
     },
     {
       "_id": "4",
       "title": "Page Four",
-      "content": "This is Page Four"
+      "description": "This is Page Four",
+      "content": "Nothing here yet. Try another one."
     },
     {
       "_id": "5",
       "title": "Page Five",
-      "content": "This is Page Five"
+      "description": "This is Page Five",
+      "content": "Nothing here yet. Try another one."
     },
     {
       "_id": "6",
       "title": "Page Six",
-      "content": "This is Page Six"
+      "description": "This is Page Six",
+      "content": "Nothing here yet. Try another one."
     },
     {
       "_id": "7",
       "title": "Page Seven",
-      "content": "This is Page Seven"
+      "description": "This is Page Seven",
+      "content": "Nothing here yet. Try another one."
     }
   ]
 }
