@@ -20,6 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     let routePath = this.props.location.pathname.split(/[:/]+/);
+    if (routePath[1] === '') routePath[1] = 1;
     this.setState({ activePage: routePath[1] });
   }
 
