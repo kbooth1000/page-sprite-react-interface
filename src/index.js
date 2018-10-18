@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -7,7 +7,10 @@ import App from './App';
 let Main = () => {
   return (
     <Router>
-      <Route path="/" component={App} />
+      <div>
+        <Route path="/" component={App} />
+        <Route path="/" exact render={() => <Redirect to="/1" />} />
+      </div>
     </Router>
   );
 };

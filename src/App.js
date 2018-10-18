@@ -4,6 +4,7 @@ import PageGrid from './components/PageGrid';
 import LinkBox from './components/LinkBox';
 
 import jsonPageData from './data/data';
+import './css/fonts.css';
 import './css/App.css';
 
 class App extends Component {
