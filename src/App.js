@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Rabbit from './components/Rabbit';
+import { withRouter } from 'react-router-dom';
 import PageGrid from './components/PageGrid';
 import LinkBox from './components/LinkBox';
 
 import jsonPageData from './data/data';
-import './css/fonts.css';
 import './css/App.css';
 
 class App extends Component {
@@ -21,7 +20,11 @@ class App extends Component {
 
   componentDidMount() {
     let routePath = this.props.location.pathname.split(/[:/]+/);
-    if (routePath[1] === '') routePath[1] = 1;
+    console.log('routePath: ', routePath);
+    if (routePath[1] === '' || routePath[1] === undefined) {
+      routePath[1] = '1';
+      this.props.history.push('/1');
+    }
     this.setState({ activePage: routePath[1] });
   }
 
@@ -34,12 +37,13 @@ class App extends Component {
   };
 
   render() {
+    let pageCount = jsonPageData.pages.length;
     let { activePage } = this.state;
 
     return (
       <div className="App">
         <div className={'container active-page-' + activePage}>
-          <LinkBox handleClick={this.handleClick} />
+          <LinkBox handleClick={this.handleClick} pageCount={pageCount} />
           <div
             className="inner-container"
             style={{
@@ -48,7 +52,7 @@ class App extends Component {
             }}
           >
             <div className="page-grid">
-              <PageGrid activePage={activePage} />
+              <PageGrid activePage={activePage} jsonPageData={jsonPageData} />
             </div>
           </div>
         </div>
@@ -57,4 +61,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

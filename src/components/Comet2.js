@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import '../css/comet.css';
 
 class Comet extends Component {
-  constructor() {
+
+  constructor(){
     super();
     this.state = {};
   }
-  rand = (lo, hi) => {
-    console.log('random: ', Math.random() * (hi - lo) + lo);
 
+  rand = (lo, hi) => {
     return Math.random() * (hi - lo) + lo;
   };
+
 
   stars = () => {
     let starsArr = [];
     for (let i = 0; i < 25; i++) {
       starsArr.push(
-        <g
+        <g key={i}
           id={'star-copy-' + i}
           transform={
             'translate(' +

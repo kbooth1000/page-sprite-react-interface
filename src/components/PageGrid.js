@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import jsonPageData from '../data/data';
 import Rabbit from './Rabbit';
 import Comet from './Comet2';
 import '../css/App.css';
 
 class PageGrid extends Component {
-  constructor(props) {
-    super();
-  }
 
   render() {
-    return jsonPageData.pages.map(page => (
+    let pages = this.props.jsonPageData.pages.map(page => (
       <div
         key={page._id}
         className={
@@ -26,6 +22,7 @@ class PageGrid extends Component {
         {page.component && page.component === 'Comet' && <Comet />}
       </div>
     ));
+    return pages;
   }
 }
 

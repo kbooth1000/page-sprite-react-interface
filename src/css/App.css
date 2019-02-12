@@ -6,8 +6,6 @@
 .App .page-grid {
   display: flex;
   flex-wrap: wrap;
-  font-family: 'M PLUS Rounded 1c',
-    sans-serif;
 }
 
 .App .container {
@@ -55,17 +53,24 @@
   background: #777777;
   padding: 11px;
   color: #fff;
-  font-family: 'M PLUS Rounded 1c',
-    sans-serif;
+}
+
+.linkbox ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .linkbox a {
   color: #fff;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .linkbox a:hover {
   color: #bbf;
   text-decoration: none;
+}
+
+.linkbox small {
+  font-size: 9px;
 }
