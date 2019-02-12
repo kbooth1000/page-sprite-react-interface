@@ -1,9 +1,9 @@
 {
   "pages": [{
       "_id": "1",
-      "title": "Page One",
+      "title": "Weather Animations",
       "description": "This is Page One",
-      "content": "Nothing here yet. Try another one."
+      "component":"WeatherAnimations"
     },
     {
       "_id": "2",

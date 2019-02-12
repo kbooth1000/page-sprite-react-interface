@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Rabbit from './Rabbit';
 import Comet from './Comet2';
+import WeatherAnimations from './WeatherAnimations';
 import '../css/App.css';
 
 class PageGrid extends Component {
@@ -20,6 +21,7 @@ class PageGrid extends Component {
         {page.content && page.content}
         {page.component && page.component === 'Rabbit' && <Rabbit />}
         {page.component && page.component === 'Comet' && <Comet />}
+        {page.component && page.component === 'WeatherAnimations' && <WeatherAnimations />}
       </div>
     ));
     return pages;
