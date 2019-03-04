@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Accelerometer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="css.css" /> -->
+</head>
+
+<body>
+
+  <!-- <script src="js.js"></script> -->
+  <script>
+
+    const tilt = arr => {
+      document.querySelector('body').innerHTML = (arr.map(item => `* ${item}`));
+    }
+
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", function () {
+        tilt([event.beta, event.gamma]);
+      }, true);
+    } else if (window.DeviceMotionEvent) {
+      window.addEventListener('devicemotion', function () {
+        tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
+      }, true);
+    } else {
+      window.addEventListener("MozOrientation", function () {
+        tilt([orientation.x * 50, orientation.y * 50]);
+      }, true);
+    }
+
+  </script>
+</body>
+
+</html>
