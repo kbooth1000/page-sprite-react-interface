@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <title>AC Recommendation App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+ 
+<body>
+ 
+    <style>
+        .recommendation-finder {
+          color: rgb(94, 94, 94);
+          font-family: Montserrat, arial, sans-serif;
+          font-size: 26px;
+          font-weight: 400;
+          /* line-height: 1.1rem; */
+          max-width: 1150px;
+          background: #fff;
+          padding: 1.5rem;
+          width: 100%;
+        }
+      
+        form,
+        .recommendation {
+          width: 0;
+          margin: auto;
+          overflow: hidden;
+          transition: 0.8s;
+          text-align: left;
+          filter: opacity(0.7);
+        }
+      
+        .step1 {
+          transition: 1s;
+          height: 152px;
+        }
+      
+        .step1.hide {
+          height: 0;
+          transition: 1s;
+        }
+      
+        .step2 {
+          transition: 0.6s 0.4s;
+        }
+      
+        fieldset {
+          padding: 1rem;
+        }
+      
+        legend {
+          text-align: left;
+        }
+      
+        legend {
+          font-family: Montserrat, arial, sans-serif;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 25px;
+        }
+      
+        form.active,
+        .active {
+          border-bottom: 3px solid #00aeef;
+          border-radius: 6px;
+          filter: opacity(1);
+        }
+      
+        .active legend {
+          color: #007fb0;
+        }
+      
+        .show {
+          width: 80%;
+          /* max-width: 400px; */
+        }
+      
+        .recommendation {
+          position: absolute;
+          width: 100vw;
+          /* width: 0; */
+          height: 0;
+          left: 0;
+          top: 0;
+          overflow: auto;
+          background: #fff;
+          z-index: 10;
+          filter: opacity(0);
+          transition: 0.5s;
+          padding: 2rem;
+          box-sizing: border-box;
+        }
+      
+        .recommendation.show {
+          width: 100vw;
+          height: 100vh;
+          /* max-width: 650px;   */
+          filter: opacity(1);
+          border: 1rem rgba(0, 0, 0, 0.4) solid;
+        }
+      
+        aside {
+          color: rgb(94, 94, 94);
+          font-family: Montserrat, arial, sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          margin: 1rem auto 1rem;
+          width: 80%;
+        }
+      
+        .step3 > fieldset > div {
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          text-align: center;
+          flex-direction: column;
+        }
+      
+        input,
+        select,
+        .submit-full {
+          margin: 0.5rem;
+        }
+      
+        input[type='submit'],
+        .submit-full {
+          margin: 0.5rem;
+          float: right;
+        }
+      
+        .unit-name {
+          margin-bottom: 2rem;
+        }
+      
+        .unit-name b {
+          font-size: 1.2rem;
+          font-weight: 800;
+        }
+      
+        .unit-tonnage {
+          font-size: 1.1rem;
+          font-weight: 400;
+        }
+      
+        .unit-seer {
+          font-size: 1.1rem;
+          font-weight: 400;
+        }
+      
+        .unit-image {
+          float: left;
+          margin-right: 3rem;
+        }
+      
+        .close-modal {
+          position: absolute;
+          right: 1rem;
+          top: 1rem;
+          padding: 0.5rem;
+          background: #00aeef;
+          color: #fff;
+        }
+      
+        .phone-button {
+          background: #007fb0;
+          color: #fff;
+          padding: 0.5rem;
+          border-radius: 4px;
+          margin: 0 1rem 1rem 1rem;
+        }
+      
+        @media only screen and (min-width: 1000px) {
+          .step3 > fieldset > div {
+            flex-wrap: wrap;
+            text-align: left;
+            justify-content: space-around;
+            flex-direction: row;
+          }
+        }
+      </style>
+      
+      <section class="recommendation-finder">
+        <form class="step1 show active">
+          <fieldset>
+            <legend>Location:</legend>
+            Enter zip-code where the unit will be installed:<br />
+            <input
+              autofocus
+              type="text"
+              name="zip-code"
+              pattern="[0-9]*"
+              inputmode="numeric"
+              value=""
+            /><br />
+            <input type="submit" value="Submit" />
+          </fieldset>
+        </form>
+      
+        <aside class="aside1"></aside>
+      
+        <form class="step2">
+          <fieldset>
+            <legend>Heat Source:</legend>
+            Is your heat source a:<br />
+            <input type="radio" name="heat-source" value="furnace" />Gas Furnace<br />
+            <input type="radio" name="heat-source" value="pump" />Electric/Heat
+            Pump<br />
+          </fieldset>
+          <!-- <input type="submit" value="Submit" /> -->
+        </form>
+      
+        <aside class="aside2"></aside>
+      
+        <form class="step3">
+          <fieldset style="display: flex;">
+            <legend>Square Footage/Tonnage:</legend>
+            <div>
+              <div class="footage-dropdown">
+                Square footage of the home:<br />
+                <select name="footage" class="footage">
+                  <optgroup label="Square Footage">
+                    <option name="1000sf" value="0">Choose square footage</option>
+                    <option name="1000sf" value="1000">800-1000sf</option>
+                    <option name="1200sf" value="1200">1000-1200sf</option>
+                    <option name="1400sf" value="1400">1200-1400sf</option>
+                    <option name="1700sf" value="1700">1500-1700sf</option>
+                    <option name="2000sf" value="2000">1800-2000</option>
+                    <option name="2500sf" value="2500">2100-2500sf</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div><em>or</em></div>
+              <div class="tonnage-dropdown">
+                Tonnage of the existing system:<br />
+                <select name="tonnage" class="tonnage">
+                  <optgroup label="Tonnage">
+                    <option name="2_0t" value="0">Choose tonnage...</option>
+                    <option name="2_0t" value="1000">2 tons</option>
+                    <option name="2_5t" value="1200">2.5 tons</option>
+                    <option name="3_0t" value="1400">3 tons</option>
+                    <option name="3_5t" value="1700">3.5 tons</option>
+                    <option name="4_0t" value="2000">4 tons</option>
+                    <option name="5_0t" value="2500">5 tons</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+          <!-- <input type="submit" value="Submit" /> -->
+        </form>
+        <!-- <button class="submit submit-full">Get Recommendation</button> -->
+      
+        <aside class="aside3"></aside>
+      
+        <div class="recommendation">
+          <button class="close-modal">X</button>
+          <div class="unit-name"></div>
+          <div class="unit-image"></div>
+          <div class="unit-tonnage"></div>
+          <div class="unit-seer"></div>
+          <div class="unit-btu"></div>
+          <div class="phone-button-box">
+            <p>
+              Call to order:<br />
+              <button class="bold hvr-bounce-to-right phone-button">
+                <i class="fa fa-phone"></i
+                ><a style="color: #fff" href="tel:+17706932946">(770) 693-2946</a>
+              </button>
+            </p>
+          </div>
+          <p></p>
+        </div>
+      </section>
+      
+      <script>
+        const zipcodes = ['30315', '30316', '30030'];
+        let furnaceUnits = {
+          sf1000: {
+            ton: 2,
+            seer: 14,
+            name: 'Single Stage Packaged Gas 80% Multi Position',
+            btu: 60,
+            imgUrl:
+              'https://www.newacunit.com/pub/media/catalog/product/cache/1/image/265x265/beff4985b56e3afdbeabfc89641a4582/g/o/goodman-package-gpg-gpd.jpg',
+            price: 3000
+          },
+          sf1200: {
+            ton: 2.5,
+            seer: 14,
+            name: 'Single Stage Packaged Gas 80% Multi Position',
+            btu: 60,
+            imgUrl:
+              'https://www.newacunit.com/pub/media/catalog/product/cache/1/image/265x265/beff4985b56e3afdbeabfc89641a4582/g/o/goodman-package-gpg-gpd.jpg',
+            price: 4400
+          },
+          sf1400: {},
+          sf1700: {},
+          sf2000: {},
+          sf2500: {}
+        };
+      
+        let pumpUnits = {
+          sf1000: {
+            ton: 2,
+            seer: 14,
+            name: 'Single Stage Package Air Conditioner Horizontal',
+            kw: 20,
+            imgUrl:
+              'https://www.newacunit.com/pub/media/catalog/product/cache/1/image/265x265/beff4985b56e3afdbeabfc89641a4582/g/o/goodman-package-gpc15-gpc14-gpc13-gp16-gp14-gp13.jpg',
+            price: 4200
+          },
+          sf1200: {},
+          sf1400: {},
+          sf1700: {},
+          sf2000: {},
+          sf2500: {}
+        };
+      
+        const asides = document.querySelectorAll('aside');
+        let recommendedUnit = null;
+        let heatingType = '';
+      
+        const d = document,
+          unitName = d.querySelector('.unit-name'),
+          unitTonnage = d.querySelector('.unit-tonnage'),
+          unitSeer = d.querySelector('.unit-seer'),
+          unitImage = d.querySelector('.unit-image'),
+          unitBtu = d.querySelector('.unit-btu'),
+          step1 = d.querySelector('.step1'),
+          step2 = d.querySelector('.step2'),
+          step3 = d.querySelector('.step3'),
+          closeModalButton = d.querySelector('.close-modal'),
+          recommendation = d.querySelector('.recommendation');
+      
+        const checkZip = e => {
+          e.preventDefault();
+          let formVal = e.target.querySelector('input').value;
+      
+          if (zipcodes.includes(formVal)) {
+            step2.classList.add('show');
+            step2.classList.add('active');
+            e.target.classList.remove('active');
+            asides[0].textContent = 'Great, we serve your area!';
+            let wait = setTimeout(() => {
+              step1.classList.add('hide');
+            }, 500);
+          } else {
+            asides[0].textContent = 'Sorry, we do not yet serve your area!';
+          }
+        };
+      
+        const getHeatingType = e => {
+          console.log('2:', e.target.value);
+          step3.classList.add('show');
+          step3.classList.add('active');
+      
+          heatingType = e.target.value;
+          step2.classList.remove('active');
+        };
+      
+        setRecUnit = val => {
+          if (heatingType === 'pump') {
+            return pumpUnits[`sf${val}`];
+          } else if (heatingType === 'furnace') {
+            return furnaceUnits[`sf${val}`];
+          }
+        };
+      
+        const getRecommendation = () => {
+          if (recommendedUnit.name) {
+            unitName.innerHTML = `We recommend this model:<br /> <b>${
+              recommendedUnit.name
+            }</b>`;
+          } else {
+            unitName.textContent = '';
+          }
+          if (recommendedUnit.ton) {
+            unitTonnage.textContent = `Tonnage: ${recommendedUnit.ton}`;
+          } else {
+            unitTonnage.textContent = '';
+          }
+          if (recommendedUnit.seer) {
+            unitSeer.textContent = `SEER: ${recommendedUnit.seer}`;
+          } else {
+            unitSeer.textContent = '';
+          }
+          if (recommendedUnit.btu) {
+            unitBtu.textContent = `BTU: ${recommendedUnit.btu}`;
+          } else {
+            unitBtu.textContent = '';
+          }
+          if (recommendedUnit.imgUrl) {
+            unitImage.innerHTML = `<img src="${
+              recommendedUnit.imgUrl ? recommendedUnit.imgUrl : 'images/no-image.png'
+            }" alt="Image of the unit." />`;
+          } else {
+            unitImage.innerHTML = '';
+          }
+          recommendation.classList.add('show');
+        };
+      
+        const getTonnage = e => {
+          d.querySelector(
+            '.footage-dropdown option[value="' + e.target.value + '"'
+          ).setAttribute('selected', true);
+          recommendedUnit = setRecUnit(e.target.value);
+          console.log('val: ', e.target.value, 'recommended: ', recommendedUnit);
+          getRecommendation();
+        };
+      
+        const getFootage = e => {
+          d.querySelector(
+            '.tonnage-dropdown option[value="' + e.target.value + '"'
+          ).setAttribute('selected', true);
+          recommendedUnit = setRecUnit(e.target.value);
+          console.log('val: ', e.target.value, 'recommended: ', recommendedUnit);
+          getRecommendation();
+        };
+      
+        const closeModal = e => {
+          console.log('close modal');
+      
+          recommendation.classList.remove('show');
+        };
+      
+        step1.addEventListener('submit', checkZip);
+        step2.addEventListener('change', getHeatingType);
+        d.querySelector('.tonnage').addEventListener('change', getTonnage);
+        d.querySelector('.footage').addEventListener('change', getFootage);
+        // d.querySelector('.submit-full').addEventListener('click', getRecommendation);
+        closeModalButton.addEventListener('click', closeModal);
+      </script>
+      
+ 
+</body>
+ 
+</html>
