@@ -4,21 +4,24 @@ import DeviceOrientation from 'react-device-orientation';
 import './compass.css';
 
 class Compass extends Component {
+  
+  componentDidMount() {
+    fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
+      .then(response => response.json())
+      .then(jsonResponse => {
+        if (jsonResponse.Response === "True") {
+          console.log('movies: ', jsonResponse.Search);
+          
+        } else {
+          console.log('error: ', jsonResponse.Error);
+          
+        }
+      })
+    }
+
   render() {
     let windDegree = 225;
-    
-    this.componentWillMount(
-      fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
-      	.then(response => response.json())
-      	.then(jsonResponse => {
-        	if (jsonResponse.Response === "True") {
-          	console.log('movies: ', jsonResponse.Search);
-            
-        	} else {
-          	console.log('error: ', jsonResponse.Error);
-            
-          }
-    );
+      
     
     return (
       <div>
