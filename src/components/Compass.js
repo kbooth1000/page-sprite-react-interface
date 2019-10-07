@@ -4,9 +4,11 @@ import DeviceOrientation from 'react-device-orientation';
 import './compass.css';
 
 class Compass extends Component {
+
+  this.searchValue = 'zombie';
   
   componentDidMount() {
-    fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
+    fetch(`https://www.omdbapi.com/?s=${this.searchValue}&apikey=4a3b711b`)
       .then(response => response.json())
       .then(jsonResponse => {
         if (jsonResponse.Response === "True") {
