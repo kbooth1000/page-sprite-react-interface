@@ -5,7 +5,7 @@ import './compass.css';
 
 class Compass extends Component {
 
-  this.searchValue = 'zombie';
+  searchValue = 'zombie';
   
   componentDidMount() {
     fetch(`https://www.omdbapi.com/?s=${this.searchValue}&apikey=4a3b711b`)
