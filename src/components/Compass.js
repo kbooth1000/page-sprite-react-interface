@@ -7,7 +7,7 @@ class Compass extends Component {
   render() {
     let windDegree = 225;
     
-    this.componentWillMount(){
+    this.componentWillMount(
       fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
       	.then(response => response.json())
       	.then(jsonResponse => {
@@ -18,7 +18,7 @@ class Compass extends Component {
           	console.log('error: ', jsonResponse.Error);
             
           }
-    }
+    );
     
     return (
       <div>
