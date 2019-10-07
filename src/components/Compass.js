@@ -6,6 +6,20 @@ import './compass.css';
 class Compass extends Component {
   render() {
     let windDegree = 225;
+    
+    this.componentWillMount(){
+      fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
+      	.then(response => response.json())
+      	.then(jsonResponse => {
+        	if (jsonResponse.Response === "True") {
+          	console.log('movies: ', jsonResponse.Search);
+            
+        	} else {
+          	console.log('error: ', jsonResponse.Error);
+            
+          }
+    }
+    
     return (
       <div>
         <DeviceOrientation>
