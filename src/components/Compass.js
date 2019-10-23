@@ -9,7 +9,7 @@ class Compass extends Component {
   
   componentDidMount() {
     /*
-    fetch(`https://www.omdbapi.com/?s=${this.searchValue}&apikey=4a3b711b`)
+    fetch(`https://secure2.convio.net/choa?api_key=wDB09SQODRpVIOvX&response_format=json&mode=no-cors`)
       .then(response => response.json())
       .then(jsonResponse => {
         if (jsonResponse.Response === "True") {
