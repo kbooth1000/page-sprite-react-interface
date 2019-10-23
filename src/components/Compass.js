@@ -23,7 +23,7 @@ class Compass extends Component {
       */
     
     
-    fetch(`https://secure2.convio.net/choa?api_key=wDB09SQODRpVIOvX&response_format=json`)
+    fetch(`https://secure2.convio.net/choa/site/CROrgEventAPI?method=getEvent &api_key=wDB09SQODRpVIOvX&v=1.0&event_id=101902`)
       .then(response => response.json())
       .then(jsonResponse => {
         if (jsonResponse.Response === "True") {
