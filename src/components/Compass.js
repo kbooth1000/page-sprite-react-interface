@@ -8,6 +8,7 @@ class Compass extends Component {
   searchValue = 'zombie';
   
   componentDidMount() {
+    /*
     fetch(`https://www.omdbapi.com/?s=${this.searchValue}&apikey=4a3b711b`)
       .then(response => response.json())
       .then(jsonResponse => {
@@ -18,7 +19,22 @@ class Compass extends Component {
           console.log('error: ', jsonResponse.Error);
           
         }
+      })  
+      */
+    
+    
+    fetch(`https://secure2.convio.net/choa?api_key=wDB09SQODRpVIOvX&response_format=json`)
+      .then(response => response.json())
+      .then(jsonResponse => {
+        if (jsonResponse.Response === "True") {
+          console.log('RESPONSE: ', jsonResponse.Search);
+          
+        } else {
+          console.log('error: ', jsonResponse.Error);
+          
+        }
       })
+    
     }
 
   render() {
