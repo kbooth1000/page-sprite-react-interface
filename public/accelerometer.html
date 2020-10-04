@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Accelerometer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="css.css" /> -->
+</head>
+
+<body>
+
+  <!-- <script src="js.js"></script> -->
+  <script>
+
+    const degreeDirections = {
+    N:[348.75, 11.25], NNE:[11.25, 33.75], NE:[33.75, 56.25], ENE:[56.25, 78.75], E:[78.75, 101.25], ESE:[101.25, 123.75], SE:[123.75, 146.25], SSE:[146.25, 168.75], S:[168.75, 191.25], SSW:[191.25, 213.75], SW:[213.75, 236.25], WSW:[236.25, 258.75], W:[258.75, 281.25], WNW:[281.25, 303.75], NW:[303.75, 326.25], NNW:[326.25, 348.75]
+    }
+
+    const tilt = arr => {
+      document.querySelector('body').innerHTML = (arr.map(item => `* ${item}
+      `));
+    }
+
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", function () {
+        tilt([event.beta, event.gamma]);
+      }, true);
+    } else if (window.DeviceMotionEvent) {
+      window.addEventListener('devicemotion', function () {
+        tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
+      }, true);
+    } else {
+      window.addEventListener("MozOrientation", function () {
+        tilt([orientation.x * 50, orientation.y * 50]);
+      }, true);
+    }
+
+  </script>
+</body>
+
+</html>

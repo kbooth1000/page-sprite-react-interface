@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import ReactGA from "react-ga";
 import Rabbit from './Rabbit';
 import Comet from './Comet2';
+import Compass from './Compass';
 import WeatherAnimations from './WeatherAnimations';
 import '../css/App.css';
 
@@ -33,7 +34,6 @@ const PageGrid = props => {
     </div>
   ));
   return pages;
-
 }
 
 export default PageGrid;

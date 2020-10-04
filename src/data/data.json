@@ -42,9 +42,10 @@
     },
     {
       "_id": "8",
-      "title": "Page Eight",
-      "description": "This is Page Eight",
-      "content": "Nothing here yet. Try another one."
+      "title": "Accelerometer Test",
+      "description": "A compass using the accelerometer of mobile device.",
+      "content": "Nothing here yet. Try another one.",
+      "component": "Compass"
     }
   ]
 }
