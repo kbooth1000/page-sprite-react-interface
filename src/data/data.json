@@ -18,25 +18,25 @@
     },
     {
       "_id": "4",
-      "title": "Page Four",
+      "title": "Page Four (4)",
       "description": "This is Page Four",
       "content": "Nothing here yet. Try another one."
     },
     {
       "_id": "5",
-      "title": "Page Five",
+      "title": "Page Five (5)",
       "description": "This is Page Five",
       "content": "Nothing here yet. Try another one."
     },
     {
       "_id": "6",
-      "title": "Page Six",
+      "title": "Page Six (6)",
       "description": "This is Page Six",
       "content": "Nothing here yet. Try another one."
     },
     {
       "_id": "7",
-      "title": "Page Seven",
+      "title": "Page Seven (7)",
       "description": "This is Page Seven",
       "content": "Nothing here yet. Try another one."
     },
@@ -44,7 +44,7 @@
       "_id": "8",
       "title": "Accelerometer Test",
       "description": "A compass using the accelerometer of mobile device.",
-      "content": "Nothing here yet. Try another one.",
+      "content": "If you are on a mobile device with an accelerometer, this should show a working compass.",
       "component": "Compass"
     }
   ]
